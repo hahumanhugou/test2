@@ -1,43 +1,27 @@
 <h1>Books</h1>
+
 <table>
     <tr>
       <th>Title</th>
       <th>Body</th>
+      <th colspan='3'></th>
     </tr>
+    <% @books.each do |book| %>
     <tr>
-      <td>axxxxxxxxxxx</td>
-      <td>bvvvvvvvvvvvv</td>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+      <td>show</a></td>
     </tr>
-    <tr>
-      <td>axvxxcxc</td>
-      <td>bvxxvxcvx</td>
-    </tr>
-    <tr>
-      <td>avxcvxcvx</td>
-      <td>bcvcxvcxvc</td>
-    </tr>
-    <tr>
-      <td>acxvxc</td>
-      <td>bcvxcvcxvxvxccx</td>
-    </tr>
-    <tr>
-      <td>acvcx</td>
-      <td>bcvxcvxcvx</td>
-    </tr>
-    <tr>
-      <td>acvxc</td>
-      <td>bxcvcxvc</td>
-    </tr>
-    <tr>
-      <td>acxvcxvc</td>
-      <td>bcxvxcv</td>
-    </tr>
-    <tr>
-      <td>acxvcxvcxvcx</td>
-      <td>bcvcxvcvcxvxcvxc</td>
-    </tr>
-    <tr>
-      <td>acvcxvcvxcvxc</td>
-      <td>bcvcxvcvc</td>
-    </tr>
-  </table>
+    <% end %>
+</table>
+
+   <h1>New book</h1>
+<%= form_with model: @book,url:'/books',method: :post do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+
+  <%= f.submit 'Create Book' %>
+<% end %>
